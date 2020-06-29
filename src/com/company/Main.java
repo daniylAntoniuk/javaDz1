@@ -1,39 +1,42 @@
 package com.company;
 
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
-
+    private static int[] push(int[] array, int push) {
+        int[] longer = new int[array.length + 1];
+        for (int i = 0; i < array.length; i++)
+            longer[i] = array[i];
+        longer[array.length] = push;
+        return longer;
+    }
     public static void main(String[] args) {
 
         //1
-//        for (int i=args.length-1;i>=0;i--){
-//            System.out.println(args[i]);
+//        int i=1;
+//        while (i<100){
+//            System.out.println(i);
+//            i+=1;
 //        }
 
-        //2 (dukii kolhoz)
-//        Scanner in = new Scanner(System.in);
-//        System.out.print("Password: ");
-//        String passwd = in.nextLine();
-//
-//        String passwdCheck = "Qwerty-1";
-//        if (passwd.equals(passwdCheck)) {
-//            System.out.println("true");
-//        } else {
-//            System.out.println("false");
-//        }
+        //2
+        Scanner in = new Scanner(System.in);
+        System.out.print("Factorial of: ");
+        int num = in.nextInt();
+        int [] arr = new int[0];
+        int i=1;
+        while (i<=num){
 
-        //3
-//        Scanner in = new Scanner(System.in);
-//        System.out.print("nums: ");
-//        String nums = in.nextLine();
-//        String[] n = nums.split(" ");
-//        int sum=0;
-//        for (String el:n){
-//            sum+=Integer.parseInt(el);
-//        }
-//        System.out.print("Sum: "+sum);
+            arr= push(arr, i);
+            i+=1;
+        }
+        int sum = 1;
+        i=0;
+        while (i<arr.length){
+            sum*=arr[i];
+            i+=1;
+        }
+        System.out.print("Factorial: "+sum);
 
     }
 }
